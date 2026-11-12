@@ -1,0 +1,126 @@
+name: Bug report
+description: Report something in {{PROJECT_NAME}} that isn't working the way it should.
+labels: ["bug", "needs triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please fill out each section so we can reproduce and fix it.
+
+        **Please don't include personal information** such as names, email addresses, or phone numbers. Use placeholders like "User A" instead.
+
+        If you've found a security problem, don't open a public issue. Email the maintainer at {{CONTACT_EMAIL}} instead.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: A short description of the bug.
+      placeholder: Saving my settings shows an error, but the new settings are still there after a refresh.
+    validations:
+      required: true
+
+  # Add project-specific questions here. For example, a dropdown of user roles
+  # ("Which kind of account were you using?") helps reproduce permission bugs.
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: The release, or the commit if you built it yourself. Write "not sure" if you don't know.
+      placeholder: e.g. v1.2.0, or commit 41e147b
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: The exact steps that cause the bug, starting from opening the app.
+      placeholder: |
+        1. Sign in
+        2. Open Settings
+        3. Change the display name and click "Save"
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What did you expect to happen?
+      placeholder: The settings are saved and a success message appears.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What actually happened? Include any error messages exactly as they appeared.
+      placeholder: An error message appeared saying "Something went wrong," but the settings were saved anyway.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: How often does this happen?
+      options:
+        - Every time
+        - Sometimes
+        - It only happened once
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      description: Include the version if you know it.
+      placeholder: e.g. Windows 11, macOS 15, Ubuntu 24.04, iOS 18, Android 15
+    validations:
+      required: true
+
+  # Replace or remove this field if it doesn't fit the project. A web app asks
+  # for the browser; a library or CLI asks for the runtime (Node, Python, ...).
+  - type: input
+    id: environment
+    attributes:
+      label: Browser or runtime
+      description: Include the version if you know it.
+      placeholder: e.g. Chrome 130, Safari 18, Firefox 132, Node.js 22.13
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or recordings
+      description: If it helps, drag and drop images or videos here. Please hide any names or email addresses first.
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Console output or logs
+      description: Paste any errors from the console or log output here. This will be formatted as code automatically.
+      render: shell
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Anything else that might help, such as when it started happening or whether it works on another device.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched the [existing issues](https://github.com/{{OWNER}}/{{REPO}}/issues) and this bug hasn't been reported yet.
+          required: true
+        - label: I removed any personal information (names, email addresses, phone numbers) from this report.
+          required: true
+        - label: I agree to follow this project's [Code of Conduct](https://github.com/{{OWNER}}/{{REPO}}/blob/main/CODE_OF_CONDUCT.md).
+          required: true
